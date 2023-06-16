@@ -10,6 +10,6 @@ function [points] = generate_spline_points(control_points)
         spline_point = de_casteljaus(control_points, t);
         points = [points; spline_point];
 
-        t = t + 0.01;
+        t = t + 0.1;
     end
 end

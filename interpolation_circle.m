@@ -13,28 +13,31 @@ color = [0 0.4470 0.7410;
             0.3010 0.7450 0.9330;];
         
 % Start pose joint space
-start_rotation = [-2.0298    0.3508    1.1189    1.3695    0.4692    1.7958];
-
-% Intermidiary pose joint space
-intermidiat_rotation = start_rotation;
-intermidiat_rotation(1) = intermidiat_rotation(1) + pi/4;
-intermidiat_rotation(2) = intermidiat_rotation(2) - 1;
-intermidiat_rotation(3) = intermidiat_rotation(3) - pi/50;
-intermidiat_rotation(3) = intermidiat_rotation(3) + 0.5;
-
-% End pose joint space
-end_rotation = start_rotation;
-end_rotation(1) = end_rotation(1) + pi;
-end_rotation(5) = end_rotation(5) - 0.5;
+% start_rotation = [-0.0000    0.0008    1.6100    3.1416    0.0400   -3.1416];
+% 
+% % Intermidiary pose joint space
+% intermidiat_rotation = start_rotation;
+% intermidiat_rotation(1) = intermidiat_rotation(1) + pi/4;
+% intermidiat_rotation(2) = intermidiat_rotation(2) - 1;
+% intermidiat_rotation(3) = intermidiat_rotation(3) - pi/50;
+% intermidiat_rotation(3) = intermidiat_rotation(3) + 0.5;
+% 
+% % End pose joint space
+% end_rotation = start_rotation;
+% end_rotation(1) = end_rotation(1) + pi/2+0.1;
+% end_rotation(5) = end_rotation(5) - 0.5;
 
 % Start pose coordinate frame
-start_pose = dk(dimensions, start_rotation)
+start_pose = [-0.5 -4 5.1 -1.5708 0 1.5708]
+% start_pose = dk(dimensions, start_rotation)
 
 % Intermidiary pose coordinate frame
-intermidiat_pose = dk(dimensions, intermidiat_rotation)
+intermidiat_pose = [2 -2 5.2999 -0.7854 -0.7854 0.7854]
+% intermidiat_pose = dk(dimensions, intermidiat_rotation)
 
 % End pose coordinate frame
-end_pose = dk(dimensions, end_rotation)
+end_pose = [3 1 3.1 0 -1.5708 0]
+% end_pose = dk(dimensions, end_rotation)
 
 % Start, middle and end quaternion
 start_q = eul2quat([start_pose(6) start_pose(5) start_pose(4)]);
